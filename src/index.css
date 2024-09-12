@@ -4,9 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,13 +36,15 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.4em 1em;
+  font-size: 0.9em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: rgb(188, 181, 181);
+  white-space: nowrap;
 }
 button:hover {
   border-color: #646cff;
@@ -69,29 +69,96 @@ button:focus-visible {
 
 table {
   margin: 20px;
+  color:gray
 }
 
 tr {
+  color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   margin-bottom: 4px;
-  border: 2px solid black;
+  border: 2px solid rgb(73, 73, 73);
   border-radius: 6px;
   padding: 6px;
+  transition: all 0.5s ease, transform 0.5s ease;
 }
 
 input {
   width: 300px;
   height: 30px;
-  border: 2px solid black;
+  border: 2px solid rgb(102, 102, 102);
   background-color: rgb(56, 56, 56);
   border-radius: 5px;
+  font-family: monospace;
+}
+input:focus{
+  appearance: none;
+  outline: green;
 }
 .input {
+  padding:  14px 10px;
+  border-radius: 4px;
+  color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  top: 0;
+  position:sticky;
+  background-color: rgba(50, 50, 50, 0.807)
+}
+
+.deleting {
+  opacity: 0;
+  transform: scale(0.9);
+  background-color: rgb(202, 54, 54);
+  transform: translateX(500px);
+}
+
+.adding {
+  animation: addition 500ms ease forwards;
+}
+
+@keyframes addition {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    background-color: rgb(84, 202, 54);
+    transform: translateX(-500px);
+  }
+  100% {
+    opacity: 1; /* Make sure the task is fully visible at the end */
+    transform: scale(1);
+    background-color: transparent; /* Set background to transparent or none */
+    transform: translateX(0px); /* Slide into position */
+  }
+}
+
+.edit-input{
+  background: none;
+  border:None;
+  width:min-content;
+  padding:2px;
+  font-size: 1rem;
+  font-family: monospace;
+  color: rgb(179, 179, 179);
+}
+
+.strike{
+  text-decoration: line-through;
+}
+
+.edit-input:focus{
+  border:2px solid red;
+  outline: red;
+  appearance: None;
+}
+
+.done{
+  background-color: rgba(54, 126, 54, 0.518);
+}
+.not-done{
+  background-color: rgba(144, 43, 43, 0.519);
 }
